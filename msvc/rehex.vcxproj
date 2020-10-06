@@ -270,6 +270,11 @@
   <ItemGroup>
     <ResourceCompile Include="..\res\winres.rc" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="plugin\plugin.vcxproj">
+      <Project>{73a3885b-07d0-4bf3-a1e5-398091a110b5}</Project>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

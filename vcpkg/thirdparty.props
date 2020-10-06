@@ -15,13 +15,17 @@
     <!-- Debug versions of wxWidget libraries have a 'd' suffix -->
     <wxDebugSuffix Condition="'$(Configuration)'=='Debug'">d</wxDebugSuffix>
 
-    <!-- And jansson decided that it needed to be unique -->
+    <!-- And jansson uses another format -->
     <janssonDebugSuffix Condition="'$(Configuration)'=='Debug'">_d</janssonDebugSuffix>
+
+    <!-- Python uses the same as jansson -->
+    <pythonDebugSuffix Condition="'$(Configuration)'=='Debug'">_d</pythonDebugSuffix>
   </PropertyGroup>
 
   <ItemDefinitionGroup>
     <ClCompile>
       <AdditionalIncludeDirectories>$(vcpkgInstallDir)\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(vcpkgInstallDir)\include\python3.8;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
 
       <!-- Tell wxWidgets what we are -->
       <PreprocessorDefinitions>__WXMSW__;%(PreprocessorDefinitions)</PreprocessorDefinitions>
@@ -46,6 +50,9 @@
 
       <!-- Add capstone -->
       <AdditionalDependencies>capstone.lib;%(AdditionalDependencies)</AdditionalDependencies>
+
+      <!-- Add python 3.8 -->
+      <AdditionalDependencies>python38$(pythonDebugSuffix).lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
 </Project>
