@@ -17,9 +17,6 @@
 
     <!-- And jansson uses another format -->
     <janssonDebugSuffix Condition="'$(Configuration)'=='Debug'">_d</janssonDebugSuffix>
-
-    <!-- Python uses the same as jansson -->
-    <pythonDebugSuffix Condition="'$(Configuration)'=='Debug'">_d</pythonDebugSuffix>
   </PropertyGroup>
 
   <ItemDefinitionGroup>
@@ -50,9 +47,6 @@
 
       <!-- Add capstone -->
       <AdditionalDependencies>capstone.lib;%(AdditionalDependencies)</AdditionalDependencies>
-
-      <!-- Add python 3.8 -->
-      <AdditionalDependencies>python38$(pythonDebugSuffix).lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
 </Project>

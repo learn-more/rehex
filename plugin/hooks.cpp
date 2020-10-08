@@ -4,6 +4,7 @@
 #include "hooks.hpp"
 #include "pydbgallocator.hpp"
 #include "pyenvironment.hpp"
+#include "luaenvironment.hpp"
 
 
 void plugin_hooks::init(const wxString& program)
@@ -14,12 +15,18 @@ void plugin_hooks::init(const wxString& program)
 	// Initialize the basic runtime
 	pyenvironment::init(program);
 
-	log("Initializing plugins");
+
+	luaenvironment::init(program);
+
+	log("Initializing plugins:");
 }
 
 
 void plugin_hooks::exit()
 {
+	luaenvironment::exit();
+
+
 	// Shutdown the interpreter
 	pyenvironment::exit();
 
